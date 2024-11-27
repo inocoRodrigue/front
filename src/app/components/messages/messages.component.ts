@@ -11,8 +11,8 @@ import { Message } from '../../models/Message';
   styleUrl: './messages.component.scss',
 })
 export class MessagesComponent implements OnInit {
-  messages: Message[] = [{ content: 'anycontent', timestamp: '665465065' }];
-  headers: string[] = ['content', 'timestamp'];
+  messages: Message[] = [];
+  headers: string[] = [];
   selectedMessage: Message | null = null;
 
   public constructor(private readonly messageService: MessagesService) {}
