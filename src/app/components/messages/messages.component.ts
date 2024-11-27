@@ -11,10 +11,19 @@ import { Message } from '../../models/Message';
   styleUrl: './messages.component.scss',
 })
 export class MessagesComponent implements OnInit {
-  messages: Message[] = [];
-  headers: string[] = [];
+  messages: Message[] = [{ content: 'anycontent', timestamp: '665465065' }];
+  headers: string[] = ['content', 'timestamp'];
+  selectedMessage: Message | null = null;
 
   public constructor(private readonly messageService: MessagesService) {}
+
+  openMessageDetails(message: Message): void {
+    this.selectedMessage = message;
+  }
+
+  closeModal(): void {
+    this.selectedMessage = null;
+  }
 
   public ngOnInit(): void {
     this.messageService.getAllMessages().subscribe({
