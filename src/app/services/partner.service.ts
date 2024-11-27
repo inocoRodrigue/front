@@ -7,7 +7,7 @@ import { Partner } from '../models/Partner';
   providedIn: 'root',
 })
 export class PartnerService {
-  private readonly BASE_URL: string = `${BACK_END_URL}partners/`;
+  private readonly BASE_URL: string = `${BACK_END_URL}partners`;
   private readonly partnerEmitter = new EventEmitter<Partner[]>();
 
   constructor(private readonly httpClient: HttpClient) {}

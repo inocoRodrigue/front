@@ -23,7 +23,7 @@ export class PartnerComponent {
       next: (value: Partner[]) => {
         this.partners = value;
         if (this.partners.length != 0) {
-          this.headers = Object.keys(this.partners[0]);
+          this.headers = [...Object.keys(this.partners[0]), 'Action'];
         }
       },
     });

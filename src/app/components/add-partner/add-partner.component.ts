@@ -26,7 +26,7 @@ export class AddPartnerComponent {
   };
   isModalOpen = false;
 
-  public constructor(private partnerService: PartnerService) {}
+  public constructor(private readonly partnerService: PartnerService) {}
 
   openModal(): void {
     this.isModalOpen = true;

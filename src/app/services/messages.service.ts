@@ -8,7 +8,7 @@ import { Message } from '../models/Message';
   providedIn: 'root',
 })
 export class MessagesService {
-  private readonly BASE_URL: string = `${BACK_END_URL}messages/`;
+  private readonly BASE_URL: string = `${BACK_END_URL}messages`;
 
   constructor(private readonly httpClient: HttpClient) {}
 

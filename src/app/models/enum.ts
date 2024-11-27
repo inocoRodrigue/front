@@ -1,10 +1,10 @@
 export enum Direction {
-  INBOUND = 'Inbound',
-  OUTBOUND = 'Outbound',
+  INBOUND = 'INBOUND',
+  OUTBOUND = 'OUTBOUND',
 }
 
 export enum ProcessedFlowType {
-  MESSAGE = 'Message',
-  ALERTING = 'Alerting',
-  NOTIFICATION = 'Notification',
+  MESSAGE = 'MESSAGE',
+  ALERTING = 'ALERTING',
+  NOTIFICATION = 'NOTIFICATION',
 }
