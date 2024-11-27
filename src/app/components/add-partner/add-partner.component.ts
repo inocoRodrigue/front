@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Direction, ProcessedFlowType } from '../../models/enum';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +13,7 @@ import { PartnerService } from '../../services/partner.service';
   styleUrl: './add-partner.component.scss',
 })
 export class AddPartnerComponent {
+  private readonly partnerService: PartnerService = inject(PartnerService);
   directionOptions = Object.values(Direction);
   processedFlowTypeOptions = Object.values(ProcessedFlowType);
   newPartner: Partner = {
@@ -25,8 +26,6 @@ export class AddPartnerComponent {
     description: '',
   };
   isModalOpen = false;
-
-  public constructor(private readonly partnerService: PartnerService) {}
 
   openModal(): void {
     this.isModalOpen = true;

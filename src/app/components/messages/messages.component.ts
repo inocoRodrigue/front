@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MessagesService } from '../../services/messages.service';
 import { CommonModule } from '@angular/common';
 import { Message } from '../../models/Message';
@@ -11,11 +11,10 @@ import { Message } from '../../models/Message';
   styleUrl: './messages.component.scss',
 })
 export class MessagesComponent implements OnInit {
+  private readonly messageService: MessagesService = inject(MessagesService);
   messages: Message[] = [];
   headers: string[] = [];
   selectedMessage: Message | null = null;
-
-  public constructor(private readonly messageService: MessagesService) {}
 
   openMessageDetails(message: Message): void {
     this.selectedMessage = message;

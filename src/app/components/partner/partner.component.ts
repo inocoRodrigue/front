@@ -1,22 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PartnerService } from '../../services/partner.service';
 import { CommonModule } from '@angular/common';
 import { AddPartnerComponent } from '../add-partner/add-partner.component';
 import { Partner } from '../../models/Partner';
+import { ValuesPipe } from '../../pipes/values.pipe';
 
 @Component({
   selector: 'app-partner',
   standalone: true,
-  imports: [CommonModule, AddPartnerComponent],
+  imports: [CommonModule, AddPartnerComponent, ValuesPipe],
   templateUrl: './partner.component.html',
   styleUrl: './partner.component.scss',
 })
 export class PartnerComponent {
+  private partnerService: PartnerService = inject(PartnerService);
   partners: Partner[] = [];
   headers: string[] = [];
   addingPartner: boolean = false;
-
-  public constructor(private readonly partnerService: PartnerService) {}
 
   public ngOnInit(): void {
     this.partnerService.getPartnerEmitter().subscribe({
@@ -30,7 +30,7 @@ export class PartnerComponent {
     this.partnerService.fetchAllPartners();
   }
 
-  deletePartner(id: number) {
+  deletePartner(id: number | undefined) {
     this.partnerService.deletePartner(id);
   }
 }
